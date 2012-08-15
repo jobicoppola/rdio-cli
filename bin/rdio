@@ -458,7 +458,8 @@ class Rdio(Termtool):
     @macapp
     def play(self, args, rdio, k):
         if rdio.player_state.get() == k.playing:
-            logging.warn("Rdio is already playing")
+            logging.warn("Rdio is already playing buddy!")
+            rdio.pause()
             return
         rdio.play()
 
@@ -466,7 +467,8 @@ class Rdio(Termtool):
     @macapp
     def pause(self, args, rdio, k):
         if rdio.player_state.get() == k.paused:
-            logging.warn("Rdio is already paused")
+            logging.warn("Rdio is already paused buddy!")
+            rdio.play()
             return
         rdio.pause()
 
